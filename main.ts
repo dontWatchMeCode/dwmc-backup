@@ -1,7 +1,7 @@
 import { $ } from "npm:zx";
 
 import { parse } from "jsr:@std/toml";
-import { join as pathJoin } from "https://deno.land/std@0.224.0/path/mod.ts";
+import { join as pathJoin } from "jsr:@std/path";
 
 const HOME_DIR = Deno.env.get("HOME");
 if (!HOME_DIR) throw new Error("HOME_DIR not found");
@@ -81,11 +81,14 @@ async function log(message: string, isError = false) {
     let logFile = FILE_LOG_PATH;
     if (isError) logFile = FILE_ERROR_PATH;
 
-    const timestamp = new Date().toString();
     console.log(message);
-    await Deno.writeTextFile(logFile, `[${timestamp}] ${message}\n`, {
-        append: true,
-    });
+    await Deno.writeTextFile(
+        logFile,
+        `[${new Date().toLocaleString()}] ${message}\n`,
+        {
+            append: true,
+        },
+    );
 }
 
 async function backup() {

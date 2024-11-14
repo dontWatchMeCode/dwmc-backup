@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "compile": "deno compile --no-prompt --allow-read --allow-write --allow-sys --allow-run --allow-env --output yes.bin main.ts",
+    "compile": "deno compile --no-prompt --allow-read --allow-write --allow-sys --allow-run --allow-env --output dwmc-backup.bin main.ts",
     "run": "deno run --no-prompt --allow-read --allow-write --allow-sys --allow-run --allow-env main.ts"
   },
   "imports": {

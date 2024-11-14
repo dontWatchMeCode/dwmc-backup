@@ -4,6 +4,7 @@
     "jsr:@std/assert@1": "1.0.8",
     "jsr:@std/collections@^1.0.5": "1.0.9",
     "jsr:@std/internal@^1.0.5": "1.0.5",
+    "jsr:@std/path@*": "1.0.8",
     "jsr:@std/toml@*": "1.0.1",
     "npm:@types/node@*": "22.5.4",
     "npm:zx@*": "8.2.2"
@@ -20,6 +21,9 @@
     },
     "@std/internal@1.0.5": {
       "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
     },
     "@std/toml@1.0.1": {
       "integrity": "b55b407159930f338d384b1f8fd317c8e8a35e27ebb8946155f49e3a158d16c4",
