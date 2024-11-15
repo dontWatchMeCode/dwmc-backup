@@ -98,7 +98,7 @@ async function backup() {
     );
 
     log(`Creating incremental backup: ${backup_file}`);
-    await $`tar --verbose --create --gzip --file=${backup_file} --listed-incremental=${FILE_SNAR_PATH} ${SOURCE_DIR}`
+    await $`tar --use-compress-program="pigz -k " --verbose --create --file=${backup_file} --listed-incremental=${FILE_SNAR_PATH} ${SOURCE_DIR}`
         .verbose();
     log(`Backup completed: ${backup_file}`);
 }
@@ -150,7 +150,7 @@ async function restore() {
 
         for (const _currentFile of backupChoices.reverse()) {
             log(`Restoring incremental backup: ${_currentFile}`);
-            await $`tar --verbose --extract --gzip --file=${
+            await $`tar --use-compress-program="pigz -k " --verbose --extract --file=${
                 pathJoin(DIR_SNAPSHOTS_PATH, _currentFile)
             } -C ${DIR_RESTORE_PATH}`.verbose();
 
