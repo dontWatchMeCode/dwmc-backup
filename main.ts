@@ -9,7 +9,7 @@ await $`which pigz`.catch(() => {
 await $`which tar`.catch(() => {
     throw new Error("tar not found, please install it.");
 });
-await $`which fzff`.catch(() => {
+await $`which fzf`.catch(() => {
     throw new Error("fzf not found, please install it.");
 });
 
