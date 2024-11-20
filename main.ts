@@ -3,6 +3,16 @@ import { $ } from "npm:zx";
 import { parse } from "jsr:@std/toml";
 import { join as pathJoin } from "jsr:@std/path";
 
+await $`which pigz`.catch(() => {
+    throw new Error("pigz not found, please install it.");
+});
+await $`which tar`.catch(() => {
+    throw new Error("tar not found, please install it.");
+});
+await $`which fzff`.catch(() => {
+    throw new Error("fzf not found, please install it.");
+});
+
 const HOME_DIR = Deno.env.get("HOME");
 if (!HOME_DIR) throw new Error("HOME_DIR not found");
 const CONF_FILE = pathJoin(HOME_DIR, ".dwmc-backup.conf");
